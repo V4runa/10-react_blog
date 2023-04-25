@@ -20,12 +20,11 @@ const Post = () => {
       description,
       content,
       author,
-      date,
     }
 
     try {
       // Send POST request to the express backend using axios with the newPost object//
-      await axios.post("../server.js", newPost);
+      await axios.post("/api/post", newPost);
 
       //handle successful submission: show success message and clear the form. //
       console.log("Blog post created successfully!");
@@ -34,7 +33,6 @@ const Post = () => {
       setDescription("");
       setContent("");
       setAuthor("");
-      setDate(new Date().toLocaleDateString());
     } catch (error) {
       //Handle error by showing error message. //
       console.error("Error creating blog post.", error);
